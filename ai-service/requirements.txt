@@ -1,0 +1,16 @@
+# ── Web Framework ────────────────────────────
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# ── OpenAI API ───────────────────────────────
+openai
+
+# ── Google OAuth + JWT ───────────────────────
+google-auth
+google-auth-httplib2
+PyJWT
+
+# ── Database ─────────────────────────────────
+aiosqlite
