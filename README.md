@@ -239,15 +239,3 @@ Beklenen Skor:
 | **Auth** | Google OAuth 2.0, PyJWT |
 | **Frontend** | React 18, Vite 6, Tailwind CSS 3 |
 | **UI Icons** | Lucide React |
-
----
-
-## 📜 Lisans
-
-MIT License — detaylar için [LICENSE](LICENSE) dosyasına bakın.
-
----
-
-<p align="center">
-  <b>AntrenmanAI</b> ile tıp eğitimini oyunlaştır. 🎮🩺
-</p>
