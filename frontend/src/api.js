@@ -1,10 +1,11 @@
 /**
  * api.js — Backend API İletişim Modülü
- * Vite proxy: /api/* → http://localhost:8000/*
+ * Local: Vite proxy /api/* → http://localhost:8000/*
+ * Production: Doğrudan Render backend URL'si
  * JWT token otomatik olarak header'a eklenir.
  */
 
-const BASE = "/api";
+const BASE = import.meta.env.VITE_API_URL || "/api";
 const TOKEN_KEY = "antrenman_jwt";
 
 function getToken() {
