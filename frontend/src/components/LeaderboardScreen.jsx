@@ -67,7 +67,7 @@ export default function LeaderboardScreen({ onBack }) {
               return (
                 <div
                   key={player.id}
-                  className={`flex items-center gap-4 p-4 rounded-xl border transition-all ${
+                  className={`flex items-center gap-2.5 sm:gap-4 p-3 sm:p-4 rounded-xl border transition-all ${
                     isMe
                       ? "bg-indigo-50 border-indigo-200 shadow-sm"
                       : rank <= 3
@@ -123,7 +123,7 @@ export default function LeaderboardScreen({ onBack }) {
 
                   {/* ELO */}
                   <div className="text-right flex-shrink-0">
-                    <div className="text-xl font-bold text-gray-900">{player.elo_rating}</div>
+                    <div className="text-lg sm:text-xl font-bold text-gray-900">{player.elo_rating}</div>
                     <div className="text-[10px] text-gray-400">ELO</div>
                   </div>
                 </div>

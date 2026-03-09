@@ -73,7 +73,7 @@ export default function ChatPanel({
       </div>
 
       {/* Giriş alanı */}
-      <div className="p-4 border-t border-gray-100">
+      <div className="p-3 sm:p-4 border-t border-gray-100">
         <div className="flex gap-2">
           <input
             ref={inputRef}
@@ -82,9 +82,9 @@ export default function ChatPanel({
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="Hastaya sorunuzu yazın..."
-            className="flex-1 px-4 py-3 rounded-xl border border-gray-200 
+            className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200 
                        focus:border-primary-400 focus:ring-2 focus:ring-primary-100 
-                       outline-none transition-all text-sm"
+                       outline-none transition-all text-sm min-w-0"
             disabled={loading}
           />
           <button
@@ -119,7 +119,7 @@ function ChatBubble({ msg }) {
         )}
       </div>
       <div
-        className={`max-w-[75%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+        className={`max-w-[85%] sm:max-w-[75%] px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl text-sm leading-relaxed ${
           isDoctor
             ? "bg-primary-600 text-white rounded-tr-md"
             : "bg-gray-100 text-gray-800 rounded-tl-md"

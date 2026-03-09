@@ -56,17 +56,17 @@ export default function ProfileScreen({ onBack }) {
         </button>
 
         {/* Profil Kartı */}
-        <div className="card p-8 mb-6 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-          <div className="flex items-center gap-5">
+        <div className="card p-5 sm:p-8 mb-4 sm:mb-6 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-5">
             {user.picture ? (
-              <img src={user.picture} alt={user.name} className="w-20 h-20 rounded-2xl border-4 border-white shadow-lg" />
+              <img src={user.picture} alt={user.name} className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl border-4 border-white shadow-lg" />
             ) : (
-              <div className="w-20 h-20 rounded-2xl bg-indigo-100 flex items-center justify-center">
-                <User className="w-10 h-10 text-indigo-400" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-indigo-100 flex items-center justify-center">
+                <User className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-400" />
               </div>
             )}
-            <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-900">{user.name || "Kullanıcı"}</h1>
+            <div className="flex-1 text-center sm:text-left">
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{user.name || "Kullanıcı"}</h1>
               <p className="text-sm text-gray-500">{user.email}</p>
               <div className="flex items-center gap-4 mt-2">
                 <span className="text-sm font-bold text-indigo-600">Seviye {user.level}</span>
@@ -93,7 +93,7 @@ export default function ProfileScreen({ onBack }) {
         </div>
 
         {/* İstatistikler */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
           <StatCard icon={Target} label="Toplam Oturum" value={stats.total_sessions} color="blue" />
           <StatCard icon={CheckCircle2} label="Doğru Tanı" value={`${stats.accuracy_percent}%`} color="green" />
           <StatCard icon={TrendingUp} label="Ort. Skor" value={stats.average_score} color="purple" />
@@ -150,7 +150,7 @@ export default function ProfileScreen({ onBack }) {
             </h3>
             <div className="space-y-2">
               {stats.recent_sessions.map((s, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg text-sm">
+                <div key={i} className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg text-xs sm:text-sm flex-wrap sm:flex-nowrap">
                   <span className={`w-2 h-2 rounded-full ${s.diagnosis_correct ? "bg-green-500" : "bg-red-400"}`} />
                   <span className="flex-1 font-medium text-gray-700 truncate">{s.topic}</span>
                   <span className={`text-xs px-2 py-0.5 rounded-full ${

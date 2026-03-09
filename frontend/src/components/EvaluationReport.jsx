@@ -59,15 +59,15 @@ export default function EvaluationReport({
 
         {/* Gamification Sonuçları */}
         {sessionResult && (
-          <div className="card p-6 mb-6 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 border-indigo-200">
+          <div className="card p-4 sm:p-6 mb-4 sm:mb-6 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 border-indigo-200">
             <div className="flex items-center gap-3 mb-4">
               <Award className="w-6 h-6 text-indigo-600" />
               <h2 className="text-lg font-bold text-indigo-900">Oturum Sonuçları</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {/* ELO Değişimi */}
-              <div className="text-center p-3 bg-white/60 rounded-xl">
-                <div className={`text-2xl font-bold ${sessionResult.elo_change >= 0 ? "text-green-600" : "text-red-600"}`}>
+              <div className="text-center p-2 sm:p-3 bg-white/60 rounded-xl">
+                <div className={`text-xl sm:text-2xl font-bold ${sessionResult.elo_change >= 0 ? "text-green-600" : "text-red-600"}`}>
                   {sessionResult.elo_change >= 0 ? (
                     <span className="flex items-center justify-center gap-1">
                       <TrendingUp className="w-5 h-5" />+{sessionResult.elo_change}
@@ -82,15 +82,15 @@ export default function EvaluationReport({
               </div>
 
               {/* XP Kazanılan */}
-              <div className="text-center p-3 bg-white/60 rounded-xl">
-                <div className="text-2xl font-bold text-amber-600 flex items-center justify-center gap-1">
+              <div className="text-center p-2 sm:p-3 bg-white/60 rounded-xl">
+                <div className="text-xl sm:text-2xl font-bold text-amber-600 flex items-center justify-center gap-1">
                   <Zap className="w-5 h-5" />+{sessionResult.xp_earned}
                 </div>
                 <p className="text-xs text-gray-500 mt-1">XP Kazanıldı</p>
               </div>
 
               {/* Tanı */}
-              <div className="text-center p-3 bg-white/60 rounded-xl">
+              <div className="text-center p-2 sm:p-3 bg-white/60 rounded-xl">
                 {sessionResult.diagnosis_correct ? (
                   <CheckCircle2 className="w-8 h-8 text-green-500 mx-auto" />
                 ) : (
@@ -102,8 +102,8 @@ export default function EvaluationReport({
               </div>
 
               {/* Skor */}
-              <div className="text-center p-3 bg-white/60 rounded-xl">
-                <div className="text-2xl font-bold text-indigo-600">{sessionResult.overall_score}/10</div>
+              <div className="text-center p-2 sm:p-3 bg-white/60 rounded-xl">
+                <div className="text-xl sm:text-2xl font-bold text-indigo-600">{sessionResult.overall_score}/10</div>
                 <p className="text-xs text-gray-500 mt-1">Genel Skor</p>
               </div>
             </div>
@@ -129,11 +129,11 @@ export default function EvaluationReport({
         )}
 
         {/* Genel skor kartı */}
-        <div className="card p-8 mb-6 text-center">
-          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-medical-500 text-white mb-4">
-            <span className="text-4xl font-bold">{overall}</span>
+        <div className="card p-5 sm:p-8 mb-4 sm:mb-6 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-primary-500 to-medical-500 text-white mb-3 sm:mb-4">
+            <span className="text-3xl sm:text-4xl font-bold">{overall}</span>
           </div>
-          <h1 className="text-2xl font-bold text-gray-800 mb-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1">
             Değerlendirme Raporu
           </h1>
           <p className="text-gray-500">
@@ -166,14 +166,14 @@ export default function EvaluationReport({
         </div>
 
         {/* Kategori skorları */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
           {Object.entries(categories).map(([key, cat]) => {
             const meta = CATEGORY_LABELS[key] || {
               label: key,
               icon: "📊",
             };
             return (
-              <div key={key} className="card p-5">
+              <div key={key} className="card p-4 sm:p-5">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xl">{meta.icon}</span>
                   <h3 className="font-semibold text-gray-800 flex-1">
@@ -205,8 +205,8 @@ export default function EvaluationReport({
         </div>
 
         {/* Güçlü yönler & Gelişim alanları */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div className="card p-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="card p-4 sm:p-5">
             <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-green-500" />
               Güçlü Yönler
@@ -220,7 +220,7 @@ export default function EvaluationReport({
               ))}
             </ul>
           </div>
-          <div className="card p-5">
+          <div className="card p-4 sm:p-5">
             <h3 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
               <Target className="w-5 h-5 text-orange-500" />
               Gelişim Alanları
@@ -238,7 +238,7 @@ export default function EvaluationReport({
 
         {/* Özet */}
         {evaluation.summary && (
-          <div className="card p-6 mb-8">
+          <div className="card p-4 sm:p-6 mb-6 sm:mb-8">
             <h3 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
               <Trophy className="w-5 h-5 text-primary-500" />
               Genel Değerlendirme
@@ -251,7 +251,7 @@ export default function EvaluationReport({
 
         {/* Yeniden başla */}
         <div className="text-center pb-8">
-          <button onClick={onRestart} className="btn-primary text-lg px-8 py-3">
+          <button onClick={onRestart} className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-2.5 sm:py-3">
             🔄 Yeni Simülasyon Başlat
           </button>
         </div>
