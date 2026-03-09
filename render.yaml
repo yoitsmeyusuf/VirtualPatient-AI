@@ -7,6 +7,7 @@
 services:
   - type: web
     name: antrenmanai-api
+    plan: free                  # Ücretsiz plan
     runtime: python
     region: frankfurt           # Türkiye'ye en yakın
     rootDir: ai-service
@@ -27,9 +28,12 @@ services:
         value: "24"
       - key: PYTHON_VERSION
         value: "3.13.3"
-    disk:
-      name: antrenmanai-data
-      mountPath: /data
-      sizeGB: 1                 # SQLite DB için yeterli
+    # Not: Free plan'da disk yok. SQLite yerel dizinde tutulur.
+    # Sunucu restart olunca DB sıfırlanır. Kalıcı istersen:
+    #   plan: starter ($7/ay) + aşağıdaki disk'i aç:
+    # disk:
+    #   name: antrenmanai-data
+    #   mountPath: /data
+    #   sizeGB: 1
     healthCheckPath: /
     autoDeploy: true            # Git push = otomatik deploy
