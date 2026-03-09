@@ -1,0 +1,35 @@
+# ═══════════════════════════════════════════════════════════
+# render.yaml — Render Blueprint (Backend Deploy)
+# ═══════════════════════════════════════════════════════════
+# Render Dashboard → New → Blueprint → GitHub repo bağla
+# Otomatik olarak bu dosyayı okur ve servisi kurar.
+
+services:
+  - type: web
+    name: antrenmanai-api
+    runtime: python
+    region: frankfurt           # Türkiye'ye en yakın
+    rootDir: ai-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: EXTERNAL_API_KEY
+        sync: false             # Dashboard'dan manuel girilecek
+      - key: EXTERNAL_API_BASE_URL
+        value: https://api.openai.com/v1
+      - key: EXTERNAL_MODEL_NAME
+        value: gpt-4o-mini
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true     # Render otomatik rastgele üretir
+      - key: JWT_EXPIRE_HOURS
+        value: "24"
+      - key: PYTHON_VERSION
+        value: "3.13.3"
+    disk:
+      name: antrenmanai-data
+      mountPath: /data
+      sizeGB: 1                 # SQLite DB için yeterli
+    healthCheckPath: /
+    autoDeploy: true            # Git push = otomatik deploy

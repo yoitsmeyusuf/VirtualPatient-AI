@@ -14,7 +14,9 @@ from pathlib import Path
 
 import aiosqlite
 
-DB_PATH = Path(__file__).parent / "antrenman.db"
+# Render disk mount: /data varsa orayı kullan, yoksa yerel dizin
+_data_dir = Path("/data") if Path("/data").exists() and Path("/data").is_dir() else Path(__file__).parent
+DB_PATH = _data_dir / "antrenman.db"
 
 # ── ELO Sabitleri ────────────────────────────────────────────────────
 ELO_START = 1000

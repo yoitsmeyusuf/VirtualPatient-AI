@@ -16,6 +16,7 @@ Endpoint'ler:
 """
 
 import asyncio
+import os
 from contextlib import asynccontextmanager
 from enum import Enum
 
@@ -71,12 +72,16 @@ app = FastAPI(
 )
 
 # ── CORS ─────────────────────────────────────────────────────────────
+# Production'da CORS_ORIGINS env ile ek origin eklenebilir
+_extra_origins = [o.strip() for o in os.environ.get("CORS_ORIGINS", "").split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:5173",
+        *_extra_origins,
     ],
     allow_credentials=True,
     allow_methods=["*"],
