@@ -2,7 +2,7 @@
 
 **Tıp öğrencileri için AI destekli hasta simülasyonu ve klinik pratik platformu.**
 
-GPT-4o-mini ile gerçekçi hasta senaryoları oluşturur, doğal Türkçe hasta sohbeti sağlar, performansı değerlendirir ve ELO tabanlı gamification ile öğrenmeyi oyunlaştırır.
+GPT-4o-mini ile gerçekçi hasta senaryoları oluşturur, doğal Türkçe hasta sohbeti sağlar, performansı değerlendirir ve ELO tabanlı gamification ile öğrenmeyi oyunlaştırır. MVP
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white" />
